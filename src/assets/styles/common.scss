@@ -1,0 +1,27 @@
+html {
+    background-color: #ededed;
+}
+
+html,
+body,
+#app,
+.container {
+    height: 100%;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.scroll-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: hidden;
+}
