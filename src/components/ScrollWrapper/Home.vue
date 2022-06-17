@@ -1,21 +1,25 @@
 <template>
   <scroll>
-    <category-nav :fields="fields"></category-nav>
+    <template v-if="!errorShow">
+      <category-nav :fields="fields"></category-nav>
 
-    <home-recommend-title :title="recommendTitle.viewTitle"></home-recommend-title>
-    <view-list :viewDatas="homeDatas.viewDatas"></view-list>
+      <home-recommend-title :title="recommendTitle.viewTitle"></home-recommend-title>
+      <view-list :viewDatas="homeDatas.viewDatas"></view-list>
 
-    <home-recommend-title :title="recommendTitle.foodTitle"></home-recommend-title>
-    <food-list :foodDatas="homeDatas.foodDatas"></food-list>
+      <home-recommend-title :title="recommendTitle.foodTitle"></home-recommend-title>
+      <food-list :foodDatas="homeDatas.foodDatas"></food-list>
 
-    <home-recommend-title :title="recommendTitle.hotelTitle"></home-recommend-title>
-    <hotel-list :hotelDatas="homeDatas.hotelDatas"></hotel-list>
+      <home-recommend-title :title="recommendTitle.hotelTitle"></home-recommend-title>
+      <hotel-list :hotelDatas="homeDatas.hotelDatas"></hotel-list>
 
-    <home-recommend-title :title="recommendTitle.massageTitle"></home-recommend-title>
-    <massage-list :massageDatas="homeDatas.massageDatas"></massage-list>
+      <home-recommend-title :title="recommendTitle.massageTitle"></home-recommend-title>
+      <massage-list :massageDatas="homeDatas.massageDatas"></massage-list>
 
-    <home-recommend-title :title="recommendTitle.ktvTitle"></home-recommend-title>
-    <ktv-list :ktvDatas="homeDatas.ktvDatas"></ktv-list>
+      <home-recommend-title :title="recommendTitle.ktvTitle"></home-recommend-title>
+      <ktv-list :ktvDatas="homeDatas.ktvDatas"></ktv-list>
+    </template>
+    <!-- 网络出错显示 -->
+    <error v-else></error>
   </scroll>
 </template>
 
@@ -28,6 +32,7 @@ import FoodList from "./FoodList";
 import HotelList from "./HotelList";
 import MassageList from "./MassageList";
 import KtvList from "./KTVList";
+import Error from "./sub/Error.vue";
 
 import fields from "@/assets/data/fields";
 
@@ -44,6 +49,7 @@ export default {
     HotelList,
     MassageList,
     KtvList,
+    Error,
   },
 
   data() {
@@ -58,6 +64,7 @@ export default {
       },
       homeDatas: {},
       curCityId: null,
+      errorShow: false,
     };
   },
   activated() {
@@ -76,8 +83,12 @@ export default {
   methods: {
     getHomeDatas() {
       homeModel.getHomeDatas(this.cityInfo.cityId).then((res) => {
-        this.homeDatas = res;
-        this.curCityId = this.cityInfo.cityId;
+        if (res && res.status) {
+          this.homeDatas = res.data;
+          this.curCityId = this.cityInfo.cityId;
+        } else {
+          this.errorShow = true;
+        }
       });
     },
   },

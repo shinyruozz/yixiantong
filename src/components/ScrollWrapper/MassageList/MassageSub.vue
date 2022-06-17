@@ -77,7 +77,6 @@ export default {
       .score-text {
         color: $defaultBgColor;
         font-size: 0.14rem;
-        padding-top: 0.08rem;
         margin-left: 0.1rem;
       }
     }

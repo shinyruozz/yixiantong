@@ -31,7 +31,7 @@ export default {
       this.$router.push({
         path: "/detail",
         query: {
-          filed: "massage",
+          field: "hotel",
           id: this.hotelData.id,
         },
       });

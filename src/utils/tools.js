@@ -4,3 +4,19 @@ export function forMatKeyWord(array, key) {
         return item;
     });
 }
+
+export function jsonToArr(str) {
+    return JSON.parse(str);
+}
+
+export function strToArr(str) {
+    return str.split(",");
+}
+
+export function replaceToSpace(str) {
+    return str.replace(/,/g, " ");
+}
+
+export function trimSpace(str) {
+    return str.replace(/\s+/g, "");
+}

@@ -30,7 +30,13 @@ export default {
 <style lang='scss' scoped>
 @import "~style/variables.scss";
 
+.star {
+  display: flex;
+  align-items: center;
+}
+
 .icon-star {
+  padding-right: 0.03rem;
   color: #ccc;
 }
 .active {

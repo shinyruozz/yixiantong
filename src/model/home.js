@@ -14,10 +14,16 @@ class Home extends HTTP {
                 success(res) {
                     const data = res.data;
                     data.foodDatas = forMatKeyWord(data.foodDatas, "keyword");
-                    resolve(data);
+                    resolve({
+                        status: 1,
+                        data,
+                    });
                 },
                 error(err) {
-                    reject(err);
+                    resolve({
+                        status: 0,
+                        err,
+                    });
                 },
             });
         });
