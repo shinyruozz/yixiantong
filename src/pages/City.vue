@@ -1,17 +1,17 @@
 <template>
   <div class="container">
-    <comment-header :title="title"></comment-header>
+    <common-header :title="title"></common-header>
     <city-scroll></city-scroll>
   </div>
 </template>
 
 <script>
-import CommentHeader from "../components/Header/CommentHeader.vue";
+import CommonHeader from "../components/Header/CommontHeader.vue";
 import CityScroll from "../components/ScrollWrapper/City.vue";
 export default {
   name: "City",
   components: {
-    CommentHeader,
+    CommonHeader,
     CityScroll,
   },
   data() {

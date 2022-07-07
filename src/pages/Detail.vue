@@ -1,19 +1,19 @@
 <template>
   <div class="container">
-    <comment-header :title="title"></comment-header>
+    <common-header :title="title"></common-header>
 
     <detail-scroll></detail-scroll>
   </div>
 </template>
 
 <script>
-import CommentHeader from "../components/Header/CommentHeader.vue";
+import CommonHeader from "../components/Header/CommontHeader.vue";
 import DetailScroll from "../components/ScrollWrapper/Detail.vue";
 
 export default {
   name: "Detail",
   components: {
-    CommentHeader,
+    CommonHeader,
     DetailScroll,
   },
   data() {

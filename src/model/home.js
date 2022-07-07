@@ -13,7 +13,7 @@ class Home extends HTTP {
                 },
                 success(res) {
                     const data = res.data;
-                    data.foodDatas = forMatKeyWord(data.foodDatas, "keyword");
+                    data.foodDatas && (data.foodDatas = forMatKeyWord(data.foodDatas, "keyword"));
                     resolve({
                         status: 1,
                         data,

@@ -9,6 +9,7 @@ export default {
   name: "BackWard",
   methods: {
     backClick() {
+      this.$emit("goback");
       this.$router.go(-1);
     },
   },

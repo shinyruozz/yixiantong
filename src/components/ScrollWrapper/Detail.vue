@@ -76,7 +76,6 @@ export default {
           data.recom && (data.recom = replaceToSpace(data.recom));
           data.service && (data.service = jsonToArr(data.service));
           this.detailData = data;
-          console.log(this.detailData);
         } else {
           // 请求不到数据情况
           this.errorShow = true;

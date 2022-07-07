@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <back-ward></back-ward>
+    <back-ward @goback="goback"></back-ward>
     <h1 class="title">{{title}}</h1>
   </div>
 </template>
@@ -17,6 +17,11 @@ export default {
   },
   components: {
     BackWard,
+  },
+  methods: {
+    goback() {
+      this.$emit("goback");
+    },
   },
 };
 </script>

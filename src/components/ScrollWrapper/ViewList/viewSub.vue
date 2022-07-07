@@ -33,7 +33,6 @@ export default {
   },
   methods: {
     routerTo() {
-      console.log(123);
       this.$router.push({
         path: "/detail",
         query: {

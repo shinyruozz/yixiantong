@@ -13,6 +13,12 @@ export default {
   mounted() {
     this.scroll = new BetterScroll(this.$refs.scroll);
   },
+  methods: {
+    refresh(cb) {
+      this.scroll.refresh();
+      cb && cb();
+    },
+  },
 };
 </script>
 

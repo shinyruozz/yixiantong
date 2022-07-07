@@ -50,9 +50,6 @@ export default {
     DetailTip,
     DetailIntro,
   },
-  mounted() {
-    console.log(this.detailData, 123);
-  },
 };
 </script>
 
